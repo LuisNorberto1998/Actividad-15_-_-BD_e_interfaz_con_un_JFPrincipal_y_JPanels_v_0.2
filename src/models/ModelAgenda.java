@@ -189,4 +189,20 @@ public class ModelAgenda {
             JOptionPane.showMessageDialog(null, "Error ModelAgenda 009: " + sql.getMessage());
         }
     }
+
+    /**
+     * Metodo que permitira borrar el registro de la tabla contactos
+     *
+     * @param email se obtiene de jtf_email
+     *
+     */
+    public void borrarRegistro(String email) {
+        System.out.println("Eliminar contacto");
+        try {
+            st.executeUpdate("DELETE FROM contactos WHERE email = '" + email + "';");
+            this.conectarDB();
+        } catch (SQLException sql) {
+            JOptionPane.showMessageDialog(null, "Error ModelAgenda 010: " + sql.getMessage());
+        }
+    }
 }

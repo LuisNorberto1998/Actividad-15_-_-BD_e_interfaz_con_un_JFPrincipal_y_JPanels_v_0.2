@@ -67,6 +67,8 @@ public class ControllerAgenda {
      * email del primer registro en las cajas de texto de ViewAgenda.
      */
     private void initDB() {
+        viewAgenda.jbtn_cancelar.setEnabled(false);
+        viewAgenda.jbtn_guardar.setEnabled(false);
         modelAgenda.conectarDB();
         viewAgenda.jtf_nombre.setText(modelAgenda.getNombre());
         viewAgenda.jtf_email.setText(modelAgenda.getEmail());
@@ -143,6 +145,19 @@ public class ControllerAgenda {
 
     private void jbtn_nuevo_actionPerformed() {
         System.out.println("Action del boton jbtn_nuevo");
+        viewAgenda.jbtn_primero.setEnabled(false);
+        viewAgenda.jbtn_siguiente.setEnabled(false);
+        viewAgenda.jbtn_anterior.setEnabled(false);
+        viewAgenda.jbtn_ultimo.setEnabled(false);
+        viewAgenda.jbtn_nuevo.setEnabled(false);
+        viewAgenda.jbtn_borrar.setEnabled(false);
+        viewAgenda.jbtn_modificar.setEnabled(false);
+        viewAgenda.jbtn_guardar.setEnabled(true);
+        viewAgenda.jbtn_cancelar.setEnabled(true);
+        
+        viewAgenda.jtf_email.setText("");
+        viewAgenda.jtf_nombre.setText("");
+        viewAgenda.jtf_telefono.setText("");
     }
 
     private void jbtn_guardar_actionPerformed() {
