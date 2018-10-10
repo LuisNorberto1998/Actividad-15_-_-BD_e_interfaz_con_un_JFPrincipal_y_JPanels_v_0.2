@@ -181,11 +181,11 @@ public class ControllerAgenda {
             viewAgenda.jbtn_modificar.setEnabled(true);
             viewAgenda.jbtn_guardar.setEnabled(false);
             viewAgenda.jbtn_cancelar.setEnabled(false);
-            
+
             modelAgenda.setNombre(viewAgenda.jtf_nombre.getText());
             modelAgenda.setEmail(viewAgenda.jtf_email.getText());
             modelAgenda.setTelefono(viewAgenda.jtf_telefono.getText());
-            
+
             modelAgenda.nuevoRegistro(modelAgenda.getNombre(), modelAgenda.getEmail(), modelAgenda.getTelefono());
             initDB();
         } else {
@@ -208,9 +208,9 @@ public class ControllerAgenda {
             viewAgenda.jbtn_modificar.setEnabled(true);
             viewAgenda.jbtn_guardar.setEnabled(false);
             viewAgenda.jbtn_cancelar.setEnabled(false);
-            
+
             initDB();
-            
+
             this.initDB();
         } else {
             System.out.println("Action no de JOptionPane");
@@ -221,6 +221,11 @@ public class ControllerAgenda {
 
         int reply = JOptionPane.showConfirmDialog(null, "¿Desea modificar el registro?", "Modifcar", JOptionPane.YES_NO_OPTION);
         if (reply == JOptionPane.YES_OPTION) {
+            modelAgenda.setNombre(viewAgenda.jtf_nombre.getText());
+            modelAgenda.setEmail(viewAgenda.jtf_email.getText());
+            modelAgenda.setTelefono(viewAgenda.jtf_telefono.getText());
+            modelAgenda.cambiarRegistro(modelAgenda.getEmail(), modelAgenda.getNombre(), modelAgenda.getTelefono());
+            initDB();
         } else {
             System.out.println("Action no de JOptionPane");
         }
