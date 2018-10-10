@@ -166,7 +166,7 @@ public class ModelAgenda {
     public void nuevoRegistro(String email, String nombre, String telefono) {
         System.out.println("Insertar nuevo contacto");
         try {
-            st.executeUpdate("INSERT INTO contactos(nombre, email, telefono) VALUES " + "('" + nombre + "','" + email + "','" + email + "' );");
+            st.executeUpdate("INSERT INTO contactos(nombre, email, telefono) VALUES " + "('" + nombre + "','" + email + "','" + telefono + "' );");
             this.conectarDB();
         } catch (SQLException sql) {
             JOptionPane.showMessageDialog(null, "Error ModelAgenda 008: " + sql.getMessage());
