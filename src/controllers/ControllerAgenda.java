@@ -81,6 +81,11 @@ public class ControllerAgenda {
         viewAgenda.jbtn_anterior.addActionListener(actionListener);
         viewAgenda.jbtn_siguiente.addActionListener(actionListener);
         viewAgenda.jbtn_ultimo.addActionListener(actionListener);
+        viewAgenda.jbtn_nuevo.addActionListener(actionListener);
+        viewAgenda.jbtn_guardar.addActionListener(actionListener);
+        viewAgenda.jbtn_modificar.addActionListener(actionListener);
+        viewAgenda.jbtn_cancelar.addActionListener(actionListener);
+        viewAgenda.jbtn_borrar.addActionListener(actionListener);
     }
 
     /**
