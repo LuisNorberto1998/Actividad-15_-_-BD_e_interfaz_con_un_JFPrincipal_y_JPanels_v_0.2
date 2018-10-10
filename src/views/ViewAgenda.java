@@ -157,11 +157,11 @@ public class ViewAgenda extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jbtn_anterior;
-    private javax.swing.JButton jbtn_borrar;
-    private javax.swing.JButton jbtn_cancelar;
-    private javax.swing.JButton jbtn_guardar;
-    private javax.swing.JButton jbtn_modificar;
-    private javax.swing.JButton jbtn_nuevo;
+    public javax.swing.JButton jbtn_borrar;
+    public javax.swing.JButton jbtn_cancelar;
+    public javax.swing.JButton jbtn_guardar;
+    public javax.swing.JButton jbtn_modificar;
+    public javax.swing.JButton jbtn_nuevo;
     public javax.swing.JButton jbtn_primero;
     public javax.swing.JButton jbtn_siguiente;
     public javax.swing.JButton jbtn_ultimo;
