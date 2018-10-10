@@ -155,11 +155,12 @@ public class ModelAgenda {
     }
 
     /**
-     * Metodo que realiza las siguientes acciones:
-     * Obtiene los datos que contienen los jTextField de ViewContactos y los inserta en la base de datos
-     * en la tabla de contactos
+     * Metodo que realiza las siguientes acciones: Obtiene los datos que
+     * contienen los jTextField de ViewContactos y los inserta en la base de
+     * datos en la tabla de contactos
+     *
      * @param email se obtiene de jtf_email
-     * @param nombre  se obtiene de jtf_nombre
+     * @param nombre se obtiene de jtf_nombre
      * @param telefono se obtiene de jtf_telefono
      */
     public void nuevoRegistro(String email, String nombre, String telefono) {
@@ -169,6 +170,21 @@ public class ModelAgenda {
             this.conectarDB();
         } catch (SQLException sql) {
             JOptionPane.showMessageDialog(null, "Error ModelAgenda 008: " + sql.getMessage());
+        }
+    }
+
+    /**
+     *
+     * @param email
+     * @param nombre
+     */
+    public void cambiarRegistro(String email, String nombre, String telefono) {
+        System.out.println("Modificar contacto");
+        try {
+            st.executeUpdate("UPDATE contactos SET nombre= '" + nombre + "',email='" + email + "', telefono = '" + telefono + "' WHERE email = '" + email + "';");
+            this.conectarDB();
+        } catch (SQLException sql) {
+            JOptionPane.showMessageDialog(null, "Error ModelAgenda 009: " + sql.getMessage());
         }
     }
 }
