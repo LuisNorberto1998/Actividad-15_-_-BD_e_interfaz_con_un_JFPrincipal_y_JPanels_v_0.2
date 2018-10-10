@@ -61,6 +61,7 @@ public class ControllerMain {
      */
     private void initComponets() {
         viewMain.setTitle("Agenda");
+        viewMain.setResizable(false);
         viewMain.setLocationRelativeTo(null);
         viewMain.setVisible(true);
     }
