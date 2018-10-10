@@ -154,4 +154,21 @@ public class ModelAgenda {
         }
     }
 
+    /**
+     * Metodo que realiza las siguientes acciones:
+     * Obtiene los datos que contienen los jTextField de ViewContactos y los inserta en la base de datos
+     * en la tabla de contactos
+     * @param email se obtiene de jtf_email
+     * @param nombre  se obtiene de jtf_nombre
+     * @param telefono se obtiene de jtf_telefono
+     */
+    public void nuevoRegistro(String email, String nombre, String telefono) {
+        System.out.println("Insertar nuevo contacto");
+        try {
+            st.executeUpdate("INSERT INTO contactos(nombre, email, telefono) VALUES " + "('" + nombre + "','" + email + "','" + email + "' );");
+            this.conectarDB();
+        } catch (SQLException sql) {
+            JOptionPane.showMessageDialog(null, "Error ModelAgenda 008: " + sql.getMessage());
+        }
+    }
 }
