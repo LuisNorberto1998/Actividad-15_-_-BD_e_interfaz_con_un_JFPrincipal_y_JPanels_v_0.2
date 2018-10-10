@@ -174,9 +174,11 @@ public class ModelAgenda {
     }
 
     /**
+     * Metodo que permite mdificar la tabla contactos
      *
-     * @param email
-     * @param nombre
+     * @param email se obtiene de jtf_email
+     * @param nombre se obtiene de jtf_nombre
+     * @param telefono se obtiene de jtf_telefono
      */
     public void cambiarRegistro(String email, String nombre, String telefono) {
         System.out.println("Modificar contacto");

@@ -34,8 +34,17 @@ public class ControllerAgenda {
                 jbtn_siguiente_actionPerformed();
             } else if (e.getSource() == viewAgenda.jbtn_ultimo) {
                 jbtn_ultimo_actionPerformed();
+            } else if (e.getSource() == viewAgenda.jbtn_nuevo) {
+                jbtn_nuevo_actionPerformed();
+            } else if (e.getSource() == viewAgenda.jbtn_guardar) {
+                jbtn_guardar_actionPerformed();
+            } else if (e.getSource() == viewAgenda.jbtn_cancelar) {
+                jbtn_cancelar_actionPerformed();
+            } else if (e.getSource() == viewAgenda.jbtn_modificar) {
+                jbtn_modificar_actionPerformed();
+            } else if (e.getSource() == viewAgenda.jbtn_borrar) {
+                jbtn_borrar_actionPerformed();
             }
-
         }
 
     };
@@ -72,7 +81,6 @@ public class ControllerAgenda {
 //        viewAgenda.setTitle("Agenda MVC");
 //        viewAgenda.setVisible(true);
 //    }
-
     /**
      * Método para agregar el actionListener a cada boton de la vista
      */
@@ -93,7 +101,7 @@ public class ControllerAgenda {
      */
     private void jbtn_primero_actionPerformed() {
         System.out.println("Action del boton jbtn_primero");
-         modelAgenda.moverPrimerRegistro();
+        modelAgenda.moverPrimerRegistro();
         setValues();
     }
 
@@ -131,5 +139,25 @@ public class ControllerAgenda {
         viewAgenda.jtf_nombre.setText(modelAgenda.getNombre());
         viewAgenda.jtf_email.setText(modelAgenda.getEmail());
         viewAgenda.jtf_telefono.setText(modelAgenda.getTelefono());
+    }
+
+    private void jbtn_nuevo_actionPerformed() {
+        System.out.println("Action del boton jbtn_nuevo");
+    }
+
+    private void jbtn_guardar_actionPerformed() {
+        System.out.println("Action del boton jbtn_guardar");
+    }
+
+    private void jbtn_cancelar_actionPerformed() {
+        System.out.println("Action del boton jbtn_cancelar");
+    }
+
+    private void jbtn_modificar_actionPerformed() {
+        System.out.println("Action del boton jbtn_modificar");
+    }
+
+    private void jbtn_borrar_actionPerformed() {
+        System.out.println("Action del boton jbtn_borrar");
     }
 }
