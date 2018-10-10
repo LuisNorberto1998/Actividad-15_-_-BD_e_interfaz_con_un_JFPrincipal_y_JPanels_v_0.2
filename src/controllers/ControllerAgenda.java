@@ -7,6 +7,7 @@ package controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import models.ModelAgenda;
 import views.ViewAgenda;
 
@@ -145,34 +146,72 @@ public class ControllerAgenda {
 
     private void jbtn_nuevo_actionPerformed() {
         System.out.println("Action del boton jbtn_nuevo");
-        viewAgenda.jbtn_primero.setEnabled(false);
-        viewAgenda.jbtn_siguiente.setEnabled(false);
-        viewAgenda.jbtn_anterior.setEnabled(false);
-        viewAgenda.jbtn_ultimo.setEnabled(false);
-        viewAgenda.jbtn_nuevo.setEnabled(false);
-        viewAgenda.jbtn_borrar.setEnabled(false);
-        viewAgenda.jbtn_modificar.setEnabled(false);
-        viewAgenda.jbtn_guardar.setEnabled(true);
-        viewAgenda.jbtn_cancelar.setEnabled(true);
-        
-        viewAgenda.jtf_email.setText("");
-        viewAgenda.jtf_nombre.setText("");
-        viewAgenda.jtf_telefono.setText("");
+
+        int reply = JOptionPane.showConfirmDialog(null, "Agregar nuevo contacto", "Nuevo", JOptionPane.YES_NO_OPTION);
+        if (reply == JOptionPane.YES_OPTION) {
+            viewAgenda.jbtn_primero.setEnabled(false);
+            viewAgenda.jbtn_siguiente.setEnabled(false);
+            viewAgenda.jbtn_anterior.setEnabled(false);
+            viewAgenda.jbtn_ultimo.setEnabled(false);
+            viewAgenda.jbtn_nuevo.setEnabled(false);
+            viewAgenda.jbtn_borrar.setEnabled(false);
+            viewAgenda.jbtn_modificar.setEnabled(false);
+            viewAgenda.jbtn_guardar.setEnabled(true);
+            viewAgenda.jbtn_cancelar.setEnabled(true);
+
+            viewAgenda.jtf_email.setText("");
+            viewAgenda.jtf_nombre.setText("");
+            viewAgenda.jtf_telefono.setText("");
+        } else {
+            System.out.println("Action no de JOptionPane");
+        }
     }
 
     private void jbtn_guardar_actionPerformed() {
         System.out.println("Action del boton jbtn_guardar");
+
+        int reply = JOptionPane.showConfirmDialog(null, "¿Quiere guardar el nuevo contacto?", "Guardar", JOptionPane.YES_NO_OPTION);
+        if (reply == JOptionPane.YES_OPTION) {
+            viewAgenda.jbtn_primero.setEnabled(true);
+            viewAgenda.jbtn_siguiente.setEnabled(true);
+            viewAgenda.jbtn_anterior.setEnabled(true);
+            viewAgenda.jbtn_ultimo.setEnabled(true);
+            viewAgenda.jbtn_nuevo.setEnabled(true);
+            viewAgenda.jbtn_borrar.setEnabled(true);
+            viewAgenda.jbtn_modificar.setEnabled(true);
+            viewAgenda.jbtn_guardar.setEnabled(false);
+            viewAgenda.jbtn_cancelar.setEnabled(false);
+        } else {
+            System.out.println("Action no de JOptionPane");
+        }
     }
 
     private void jbtn_cancelar_actionPerformed() {
         System.out.println("Action del boton jbtn_cancelar");
+
+        int reply = JOptionPane.showConfirmDialog(null, "¿Quiere cancelar el registro?", "Cancelar", JOptionPane.YES_NO_OPTION);
+        if (reply == JOptionPane.YES_OPTION) {
+        } else {
+            System.out.println("Action no de JOptionPane");
+        }
     }
 
     private void jbtn_modificar_actionPerformed() {
-        System.out.println("Action del boton jbtn_modificar");
+
+        int reply = JOptionPane.showConfirmDialog(null, "¿Desea modificar el registro?", "Modifcar", JOptionPane.YES_NO_OPTION);
+        if (reply == JOptionPane.YES_OPTION) {
+        } else {
+            System.out.println("Action no de JOptionPane");
+        }
     }
 
     private void jbtn_borrar_actionPerformed() {
         System.out.println("Action del boton jbtn_borrar");
+
+        int reply = JOptionPane.showConfirmDialog(null, "¿Estas seguro que quieres borrar el contacto?", "Borrar", JOptionPane.YES_NO_OPTION);
+        if (reply == JOptionPane.YES_OPTION) {
+        } else {
+            System.out.println("Action no de JOptionPane");
+        }
     }
 }
