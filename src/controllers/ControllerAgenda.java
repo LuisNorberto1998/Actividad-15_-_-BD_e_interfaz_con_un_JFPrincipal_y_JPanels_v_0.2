@@ -181,6 +181,7 @@ public class ControllerAgenda {
             viewAgenda.jbtn_modificar.setEnabled(true);
             viewAgenda.jbtn_guardar.setEnabled(false);
             viewAgenda.jbtn_cancelar.setEnabled(false);
+            initDB();
         } else {
             System.out.println("Action no de JOptionPane");
         }
@@ -191,6 +192,20 @@ public class ControllerAgenda {
 
         int reply = JOptionPane.showConfirmDialog(null, "¿Quiere cancelar el registro?", "Cancelar", JOptionPane.YES_NO_OPTION);
         if (reply == JOptionPane.YES_OPTION) {
+
+            viewAgenda.jbtn_primero.setEnabled(true);
+            viewAgenda.jbtn_siguiente.setEnabled(true);
+            viewAgenda.jbtn_anterior.setEnabled(true);
+            viewAgenda.jbtn_ultimo.setEnabled(true);
+            viewAgenda.jbtn_nuevo.setEnabled(true);
+            viewAgenda.jbtn_borrar.setEnabled(true);
+            viewAgenda.jbtn_modificar.setEnabled(true);
+            viewAgenda.jbtn_guardar.setEnabled(false);
+            viewAgenda.jbtn_cancelar.setEnabled(false);
+            
+            initDB();
+            
+            this.initDB();
         } else {
             System.out.println("Action no de JOptionPane");
         }
