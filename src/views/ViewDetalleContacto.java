@@ -31,12 +31,24 @@ public class ViewDetalleContacto extends javax.swing.JPanel {
         jl_email = new javax.swing.JLabel();
         jl_telefono = new javax.swing.JLabel();
 
+        addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                formPropertyChange(evt);
+            }
+        });
+
+        jl_nombre.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
+        jl_nombre.setForeground(new java.awt.Color(255, 255, 255));
         jl_nombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jl_nombre.setText("nombre");
 
+        jl_email.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
+        jl_email.setForeground(new java.awt.Color(255, 255, 255));
         jl_email.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jl_email.setText("email");
 
+        jl_telefono.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
+        jl_telefono.setForeground(new java.awt.Color(255, 255, 255));
         jl_telefono.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jl_telefono.setText("telefono");
 
@@ -60,6 +72,12 @@ public class ViewDetalleContacto extends javax.swing.JPanel {
                 .addContainerGap(39, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_formPropertyChange
+        models.imagenAgenda image = new models.imagenAgenda();
+        this.add(image);
+        this.repaint();
+    }//GEN-LAST:event_formPropertyChange
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

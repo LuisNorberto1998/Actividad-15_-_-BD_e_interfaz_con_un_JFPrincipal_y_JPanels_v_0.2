@@ -37,6 +37,11 @@ public class ViewMain extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(443, 285));
         setPreferredSize(new java.awt.Dimension(443, 285));
+        addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                formPropertyChange(evt);
+            }
+        });
 
         jMenu1.setText("Archivo");
 
@@ -67,6 +72,12 @@ public class ViewMain extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_formPropertyChange
+        models.imagenAgenda img = new models.imagenAgenda();
+        this.add(img);
+        this.repaint();
+    }//GEN-LAST:event_formPropertyChange
 
     /**
      * @param args the command line arguments

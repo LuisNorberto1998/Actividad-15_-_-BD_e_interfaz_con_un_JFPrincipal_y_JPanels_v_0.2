@@ -5,6 +5,8 @@
  */
 package views;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author Zeo
@@ -43,13 +45,23 @@ public class ViewAgenda extends javax.swing.JPanel {
         jbtn_modificar = new javax.swing.JButton();
         jbtn_cancelar = new javax.swing.JButton();
 
+        addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                formPropertyChange(evt);
+            }
+        });
+
         jl_nombre.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jl_nombre.setForeground(new java.awt.Color(255, 255, 255));
         jl_nombre.setText("Nombre");
 
         jl_email.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jl_email.setForeground(new java.awt.Color(255, 255, 255));
         jl_email.setText("Email");
 
-        jtf_nombre.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jtf_nombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        jtf_email.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
         jbtn_primero.setText("|<");
 
@@ -60,7 +72,10 @@ public class ViewAgenda extends javax.swing.JPanel {
         jbtn_ultimo.setText(">|");
 
         jl_telefono.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jl_telefono.setForeground(new java.awt.Color(255, 255, 255));
         jl_telefono.setText("Telefono");
+
+        jtf_telefono.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
         jbtn_borrar.setText("Borrar");
 
@@ -153,6 +168,13 @@ public class ViewAgenda extends javax.swing.JPanel {
     private void jbtn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_cancelarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jbtn_cancelarActionPerformed
+
+    private void formPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_formPropertyChange
+       models.imagenAgenda img = new models.imagenAgenda();
+        this.add(img);
+        this.repaint();
+        
+    }//GEN-LAST:event_formPropertyChange
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
