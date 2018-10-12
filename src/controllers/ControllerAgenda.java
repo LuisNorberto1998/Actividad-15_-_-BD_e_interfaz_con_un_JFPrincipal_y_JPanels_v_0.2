@@ -143,7 +143,9 @@ public class ControllerAgenda {
         viewAgenda.jtf_email.setText(modelAgenda.getEmail());
         viewAgenda.jtf_telefono.setText(modelAgenda.getTelefono());
     }
-
+/**
+ * Metodo que permite activar el boton de cancelar y guardar en viewAgenda
+ */
     private void jbtn_nuevo_actionPerformed() {
         System.out.println("Action del boton jbtn_nuevo");
 
@@ -167,6 +169,12 @@ public class ControllerAgenda {
         }
     }
 
+    /**
+     * Metodo que realiza la accion para conectar modelo, vista y controlador
+     * para poder guardar un nuevo registro
+     * obteniendo el valor de jtf_email, jtf_nombre y jtf_telefono e insertandolos en
+     * las variables email, nombre y telefono de ModelAgenda
+     */
     private void jbtn_guardar_actionPerformed() {
         System.out.println("Action del boton jbtn_guardar");
         if (modelAgenda.esEmail(viewAgenda.jtf_email.getText())) {
@@ -196,6 +204,11 @@ public class ControllerAgenda {
         }
     }
 
+    /**
+     * Metodo que desactiva el boton cancelar y guardar
+     * Volviendo a activar los botones que recorren los registros
+     * y los botones de Modificar, Nuevo, Borrar en viewAgenda
+     */
     private void jbtn_cancelar_actionPerformed() {
         System.out.println("Action del boton jbtn_cancelar");
 
@@ -220,6 +233,10 @@ public class ControllerAgenda {
         }
     }
 
+    /**
+     * Este metodo permite obtener el valor de los jTextField de viewAgenda
+     * e insertarlos en las variables email, nombre y telefono de modelAgenda
+     */
     private void jbtn_modificar_actionPerformed() {
         if (modelAgenda.esEmail(viewAgenda.jtf_email.getText())) {
             int reply = JOptionPane.showConfirmDialog(null, "¿Desea modificar el registro?", "Modifcar", JOptionPane.YES_NO_OPTION);
@@ -237,6 +254,11 @@ public class ControllerAgenda {
         }
     }
 
+    /**
+     * Este metodo permite obtener el valor de jtf_email en viewAgenda
+     * lo inserta en la variable email de modelAgenda y permite borrar el registro
+     * de la tabla contactos
+     */
     private void jbtn_borrar_actionPerformed() {
         System.out.println("Action del boton jbtn_borrar");
         if (modelAgenda.esEmail(viewAgenda.jtf_email.getText())) {
