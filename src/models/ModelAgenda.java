@@ -10,6 +10,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -204,5 +206,22 @@ public class ModelAgenda {
         } catch (SQLException sql) {
             JOptionPane.showMessageDialog(null, "Error ModelAgenda 010: " + sql.getMessage());
         }
+    }
+
+/**
+ * Metodo que permite evaluar si el correo de jtf_email cumple con los requisitos 
+ * para poder almacenar el email en la base de datos
+ * @param correo
+ * @return 
+ */
+    public boolean esEmail(String correo) {
+
+        // Patrón para validar el email
+        Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+        //Se indica con que caracteres debe iniciar el String o la Cadena
+        Matcher mather = pattern.matcher(correo);
+
+        return mather.find();//Regresa el valor final si con los parametros que se le indican
+
     }
 }

@@ -169,27 +169,30 @@ public class ControllerAgenda {
 
     private void jbtn_guardar_actionPerformed() {
         System.out.println("Action del boton jbtn_guardar");
+        if (modelAgenda.esEmail(viewAgenda.jtf_email.getText())) {
+            int reply = JOptionPane.showConfirmDialog(null, "¿Quiere guardar el nuevo contacto?", "Guardar", JOptionPane.YES_NO_OPTION);
+            if (reply == JOptionPane.YES_OPTION) {
+                viewAgenda.jbtn_primero.setEnabled(true);
+                viewAgenda.jbtn_siguiente.setEnabled(true);
+                viewAgenda.jbtn_anterior.setEnabled(true);
+                viewAgenda.jbtn_ultimo.setEnabled(true);
+                viewAgenda.jbtn_nuevo.setEnabled(true);
+                viewAgenda.jbtn_borrar.setEnabled(true);
+                viewAgenda.jbtn_modificar.setEnabled(true);
+                viewAgenda.jbtn_guardar.setEnabled(false);
+                viewAgenda.jbtn_cancelar.setEnabled(false);
 
-        int reply = JOptionPane.showConfirmDialog(null, "¿Quiere guardar el nuevo contacto?", "Guardar", JOptionPane.YES_NO_OPTION);
-        if (reply == JOptionPane.YES_OPTION) {
-            viewAgenda.jbtn_primero.setEnabled(true);
-            viewAgenda.jbtn_siguiente.setEnabled(true);
-            viewAgenda.jbtn_anterior.setEnabled(true);
-            viewAgenda.jbtn_ultimo.setEnabled(true);
-            viewAgenda.jbtn_nuevo.setEnabled(true);
-            viewAgenda.jbtn_borrar.setEnabled(true);
-            viewAgenda.jbtn_modificar.setEnabled(true);
-            viewAgenda.jbtn_guardar.setEnabled(false);
-            viewAgenda.jbtn_cancelar.setEnabled(false);
+                modelAgenda.setNombre(viewAgenda.jtf_nombre.getText());
+                modelAgenda.setEmail(viewAgenda.jtf_email.getText());
+                modelAgenda.setTelefono(viewAgenda.jtf_telefono.getText());
 
-            modelAgenda.setNombre(viewAgenda.jtf_nombre.getText());
-            modelAgenda.setEmail(viewAgenda.jtf_email.getText());
-            modelAgenda.setTelefono(viewAgenda.jtf_telefono.getText());
-
-            modelAgenda.nuevoRegistro(modelAgenda.getNombre(), modelAgenda.getEmail(), modelAgenda.getTelefono());
-            initDB();
+                modelAgenda.nuevoRegistro(modelAgenda.getEmail(), modelAgenda.getNombre(), modelAgenda.getTelefono());
+                initDB();
+            } else {
+                System.out.println("Action no de JOptionPane");
+            }
         } else {
-            System.out.println("Action no de JOptionPane");
+            JOptionPane.showMessageDialog(null, "El correo es invalido");
         }
     }
 
@@ -218,26 +221,35 @@ public class ControllerAgenda {
     }
 
     private void jbtn_modificar_actionPerformed() {
-
-        int reply = JOptionPane.showConfirmDialog(null, "¿Desea modificar el registro?", "Modifcar", JOptionPane.YES_NO_OPTION);
-        if (reply == JOptionPane.YES_OPTION) {
-            modelAgenda.setNombre(viewAgenda.jtf_nombre.getText());
-            modelAgenda.setEmail(viewAgenda.jtf_email.getText());
-            modelAgenda.setTelefono(viewAgenda.jtf_telefono.getText());
-            modelAgenda.cambiarRegistro(modelAgenda.getEmail(), modelAgenda.getNombre(), modelAgenda.getTelefono());
-            initDB();
+        if (modelAgenda.esEmail(viewAgenda.jtf_email.getText())) {
+            int reply = JOptionPane.showConfirmDialog(null, "¿Desea modificar el registro?", "Modifcar", JOptionPane.YES_NO_OPTION);
+            if (reply == JOptionPane.YES_OPTION) {
+                modelAgenda.setNombre(viewAgenda.jtf_nombre.getText());
+                modelAgenda.setEmail(viewAgenda.jtf_email.getText());
+                modelAgenda.setTelefono(viewAgenda.jtf_telefono.getText());
+                modelAgenda.cambiarRegistro(modelAgenda.getEmail(), modelAgenda.getNombre(), modelAgenda.getTelefono());
+                initDB();
+            } else {
+                System.out.println("Action no de JOptionPane");
+            }
         } else {
-            System.out.println("Action no de JOptionPane");
+            JOptionPane.showMessageDialog(null, "El campo de correo es invalido");
         }
     }
 
     private void jbtn_borrar_actionPerformed() {
         System.out.println("Action del boton jbtn_borrar");
-
-        int reply = JOptionPane.showConfirmDialog(null, "¿Estas seguro que quieres borrar el contacto?", "Borrar", JOptionPane.YES_NO_OPTION);
-        if (reply == JOptionPane.YES_OPTION) {
+        if (modelAgenda.esEmail(viewAgenda.jtf_email.getText())) {
+            int reply = JOptionPane.showConfirmDialog(null, "¿Estas seguro que quieres borrar el contacto?", "Borrar", JOptionPane.YES_NO_OPTION);
+            if (reply == JOptionPane.YES_OPTION) {
+                modelAgenda.setEmail(viewAgenda.jtf_email.getText());
+                modelAgenda.borrarRegistro(modelAgenda.getEmail());
+                initDB();
+            } else {
+                System.out.println("Action no de JOptionPane");
+            }
         } else {
-            System.out.println("Action no de JOptionPane");
+            JOptionPane.showMessageDialog(null, "Ingresa un correo valido para poder eliminar el registro");
         }
     }
 }
